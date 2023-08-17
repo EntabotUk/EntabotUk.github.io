@@ -94,6 +94,11 @@ a.navbar-brand .fa-globe:hover
   display: inline-block;
   text-align: center;
 }
+span.khmer{
+  font-family: 'Battambang', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Siemreap', cursive;
+}
 h1.intro-text
 {
   margin:0;
