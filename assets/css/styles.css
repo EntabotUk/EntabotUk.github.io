@@ -64,7 +64,7 @@ a.navbar-brand .fa-globe:hover
   max-width: 996px;
 }
 .splash {
-  background:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../images/background.png");
+  background:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../images/background.png");
 	background-size: cover;
 	color: #fff;
 }
@@ -84,6 +84,51 @@ a.navbar-brand .fa-globe:hover
   opacity: 0.85;
 }
 
+/* ADDING ANIMATIONS TO PROFILE IMAGE*/
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(250) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(250) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+/* END OF ADDING ANIMATIONS TO PROFILE IMAGE */
 .splash h1 {
   font-size: 40px;
   margin-bottom: .15em;
