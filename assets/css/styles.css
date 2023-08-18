@@ -64,7 +64,7 @@ a.navbar-brand .fa-globe:hover
   max-width: 996px;
 }
 .splash {
-  background:url("../images/background.png") no-repeat fixed center bottom;
+  background:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../images/background.png");
 	background-size: cover;
 	color: #fff;
 }
