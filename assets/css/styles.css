@@ -64,7 +64,7 @@ a.navbar-brand .fa-globe:hover
   max-width: 996px;
 }
 .splash {
-  background:url("https://unsplash.com/photos/nd_6z4JFK4g/download?force=true") no-repeat fixed center bottom;
+  background:url("../images/background.png") no-repeat fixed center bottom;
 	background-size: cover;
 	color: #fff;
 }

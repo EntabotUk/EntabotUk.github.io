@@ -1,6 +1,3 @@
-$( window ).resize( function() {
-  centerSplash();
-});
 
 !function($){
 
@@ -224,7 +221,7 @@ $( window ).resize( function() {
 $(function(){
 
         $("#typed").typed({
-            strings: ["Teacher","Reader","Music enjoyer"], //Strings to display when typing
+            strings: ["a teacher","a reader","a web developer","a lot more"], //Strings to display when typing
             typeSpeed: 40,
             backDelay: 600,
             loop: true,
