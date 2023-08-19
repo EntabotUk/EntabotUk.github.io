@@ -101,7 +101,7 @@ a.navbar-brand .fa-globe:hover
   height: var(--card-height);
   position: relative;
   border-radius: 50%;
-  margin: auto;
+  margin: autog;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -136,7 +136,7 @@ a.navbar-brand .fa-globe:hover
 .card::after {
   position: absolute;
   content: "";
-  top: calc(var(--card-height) / 6);
+  border-radius: 50%;
   left: 0;
   right: 0;
   z-index: 1;
@@ -144,7 +144,7 @@ a.navbar-brand .fa-globe:hover
   width: 100%;
   margin: 0 auto;
   transform: scale(0.8);
-  filter: blur(calc(var(--card-height) / 6));
+  filter: blur(calc(var(--card-height) / 5));
   background-image: linear-gradient(
     var(--rotate)
     , #5ddcff, #3c67e3 43%, #4e00c2);
