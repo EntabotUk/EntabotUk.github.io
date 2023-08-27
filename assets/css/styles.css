@@ -745,3 +745,33 @@ body {
     object-fit: cover;
   }
 }
+#button {
+  margin: 4%;
+  padding: 1% 4%;
+  border-radius: 1px;
+  background: blck;
+  color: white;
+  font-size: 16px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.css-button {
+  animation: inout 1s ease infinite;
+}
+
+.gsap-button {
+  border: 1px solid #82c303 !important;
+}
+
+@keyframes inout {
+  0% {
+    -webkit-box-shadow: 0 0 0 0px rgba(255,255,255,0.4);
+    -moz-box-shadow: 0 0 0 0px rgba(255,255,255,0.4);
+    box-shadow: 0 0 0 0px rgba(255,255,255,0.4);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 20px rgba(255,255,255,0);
+    -moz-box-shadow: 0 0 0 20px rgba(255,255,255,0);
+    box-shadow: 0 0 0 20px rgba(255,255,255,0);
+  }
+}

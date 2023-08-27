@@ -424,4 +424,10 @@ function initAccordion() {
       },
       "-=2"
     );
-  
+    gsap.fromTo(".gsap-button", {
+      boxShadow: "0 0 0 0px rgba(130, 195, 3, 0.4)"
+    }, {
+      boxShadow: "0 0 0 20px rgba(130, 195, 3, 0)",
+      repeat: -1,
+      duration: 1
+    });  
