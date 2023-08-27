@@ -298,3 +298,130 @@ textElements.forEach(text => {
     },
   });
 });
+function initAccordion() {
+    const accordion = document.querySelector(".js-accordion");
+  
+    if (!accordion) {
+      return;
+    } else {
+      const groups = gsap.utils.toArray(".js-accordion__group");
+      const menus = gsap.utils.toArray(".js-accordion__menu");
+      const animations = [];
+  
+      groups.forEach((group) => createAnimation(group));
+  
+      menus.forEach((menu) => {
+        menu.addEventListener("click", () => toggleAnimation(menu));
+      });
+  
+      function toggleAnimation(menu) {
+        // Save the current state of the clicked animation
+        const selectedReversedState = menu.animation.reversed();
+  
+        // Reverse all animations
+        animations.forEach((animation) => animation.reverse());
+  
+        // Set the reversed state of the clicked accordion element to the opposite of what it was before
+        menu.animation.reversed(!selectedReversedState);
+      }
+  
+      function createAnimation(element) {
+        const menu = element.querySelector(".js-accordion__menu");
+        const infos = element.querySelector(".js-accordion__content");
+        const group = infos.parentElement;
+        const icon = element.querySelector(".js-accordion__icon");
+        const image = element.querySelector(".js-accordion__img");
+  
+        gsap.set(group, { flexGrow: 1 });
+        gsap.set(icon, { rotation: 0 });
+  
+        const tlAccordion = gsap.timeline({
+          reversed: true,
+          paused: !0,
+        });
+  
+        tlAccordion
+          .to(group, {
+            flexGrow: 10,
+            duration: 0.5,
+            ease: "power1.inOut",
+          })
+          .from(
+            infos,
+            {
+              autoAlpha: 0,
+              y: 80,
+              duration: 0.5,
+              ease: "power1.inOut",
+            },
+            "<"
+          )
+          .to(
+            image,
+            {
+              duration: 0.5,
+              ease: "power1.inOut",
+            },
+            "<"
+          )
+          .to(
+            icon,
+            {
+              duration: 0.25,
+              rotation: 90,
+              ease: "linear",
+            },
+            "<"
+          );
+  
+        menu.animation = tlAccordion;
+        animations.push(tlAccordion);
+      }
+      toggleAnimation(menus[0])
+    }
+  }
+  
+  initAccordion();
+  const headingTl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 2,
+    yoyo: true
+  });
+  
+  headingTl
+    .from(".heading", {
+      duration: 1,
+      scaleX: 0,
+      transformOrigin: "left",
+      ease: "expo.inOut"
+    })
+    .from(
+      ".heading h1",
+      {
+        y: "100%",
+        duration: 0.8,
+        ease: "expo.out"
+      },
+      "-=0.2"
+    )
+    .from(
+      ".heading",
+      {
+        css: { borderBottom: "4px solid black" },
+        duration: 2,
+        transformOrigin: "right",
+        ease: "none"
+      },
+      "-=1"
+    )
+    .from(
+      ".heading h1",
+      {
+        duration: 2,
+        transformOrigin: "right",
+        ease: "none",
+        css: { color: "black" }
+      },
+      "-=2"
+    );
+  

@@ -255,6 +255,7 @@ h1.intro-text
 {
   padding-top:2em!important;
   padding-bottom: 5em;
+  background-color: #000;
 }
 section h2 {
     margin: 0;
@@ -648,4 +649,99 @@ h1 > .magic > .magic-text {
 .container-animate a {
   text-decoration: none;
   color: inherit;
+}
+@import url("https://fonts.googleapis.com/css2?family=Spectral&display=swap");
+
+body {
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+.js-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+.js-accordion__group {
+  position: relative;
+  flex-grow: 1;
+  height: 450px;
+  min-width: 100px;
+  cursor: pointer;
+}
+.js-accordion__content {
+  position: absolute;
+  padding: 3rem 2rem 2rem 2rem;
+  z-index: 2;
+  max-width: 70%;
+  z-index: 10;
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+}
+.js-accordion__content,
+.js-accordion__img {
+  pointer-events: none;
+}
+.js-accordion__content h1{
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 768px) {
+  .js-accordion__content h1{
+    font-size: large;
+  }
+  .js-accordion__content{
+    max-width: 100%;
+  }
+}
+.js-accordion__img {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  right: 0px;
+  object-fit: cover;
+  opacity: 1;
+}
+.js-accordion__menu {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 5px 10px;
+  background: #7d27fe;
+  border-radius: 5px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.js-accordion__icon {
+  font-weight: bold;
+  margin-right: 5px;
+  font-size: 18px;
+}
+@media screen and (max-width: 720px) {
+  .js-accordion {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+    overflow: hidden;
+  }
+  .js-accordion__group {
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+  }
+  .js-accordion__img {
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    top: inherit;
+    object-fit: cover;
+  }
 }
