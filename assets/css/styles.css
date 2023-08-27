@@ -101,7 +101,7 @@ a.navbar-brand .fa-globe:hover
   height: var(--card-height);
   position: relative;
   border-radius: 50%;
-  margin: autog;
+  margin: auto;
   justify-content: center;
   align-items: center;
   text-align: center;
