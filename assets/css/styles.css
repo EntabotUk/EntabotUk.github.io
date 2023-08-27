@@ -116,10 +116,10 @@ a.navbar-brand .fa-globe:hover
   color: rgb(88 199 250 / 100%);
   transition: color 1s;
 }
-.card:hover:before, .card:hover:after {
+/* .card:hover:before, .card:hover:after {
   animation: none;
   opacity: 0;
-}
+} */
 
 
 .card::before {
@@ -137,11 +137,9 @@ a.navbar-brand .fa-globe:hover
   position: absolute;
   content: "";
   border-radius: 50%;
-  left: 0;
-  right: 0;
   z-index: 1;
-  height: 100%;
-  width: 100%;
+  height: 120%;
+  width: 120%;
   margin: 0 auto;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 5));
@@ -255,7 +253,8 @@ h1.intro-text
 }
 #about,#portfolio,#contact
 {
-  padding-top:4em!important;
+  padding-top:2em!important;
+  padding-bottom: 5em;
 }
 section h2 {
     margin: 0;
@@ -263,7 +262,7 @@ section h2 {
 }
 section.success {
     color: #fff;
-    background: rgb(13, 79, 136);
+    background: rgb(0, 0, 0);
   padding: 2%;
 }
 
@@ -377,6 +376,7 @@ footer {
   background-color: #2C3E50;
   color:  #fff;
   font-size: 1.5em;
+  padding-bottom: 0 !important;
   text-align: center;
   padding:3%;
 }
@@ -457,4 +457,195 @@ hr.footer-hr
 hr.copyright
 {
   opacity:0.4;
+}
+:root {  
+  --purple: rgb(123, 31, 162);
+  --violet: rgb(103, 58, 183);
+  --pink: rgb(244, 143, 177);
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale {
+  from, to {
+    transform: scale(0);
+  }
+  
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+h1 > .magic {
+  display: inline-block;
+  position: relative;
+}
+
+h1 > .magic > .magic-star {
+  --size: clamp(20px, 1.5vw, 30px);
+  
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--star-left);
+  position: absolute;
+  top: var(--star-top);
+  width: var(--size);
+}
+
+h1 > .magic > .magic-star > svg {
+  animation: rotate 1000ms linear infinite;
+  display: block;
+  opacity: 0.7;
+}
+
+h1 > .magic > .magic-star > svg > path {
+  fill: var(--violet);
+}
+
+h1 > .magic > .magic-text {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--violet),
+    var(--pink),
+    var(--purple)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+/* -- YouTube Link Styles -- */
+
+#source-link {
+  top: 60px;
+}
+
+#source-link > i {
+  color: rgb(94, 106, 210);
+}
+
+#yt-link {  
+  top: 10px;
+}
+
+#yt-link > i {
+  color: rgb(239, 83, 80);
+}
+
+.meta-link {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;  
+  display: inline-flex;
+  gap: 5px;
+  left: 10px;
+  padding: 10px 20px;
+  position: fixed;
+  text-decoration: none;
+  transition: background-color 600ms, border-color 600ms;
+  z-index: 10000;
+}
+
+.meta-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meta-link > i, .meta-link > span {
+  height: 20px;
+  line-height: 20px;
+}
+
+.meta-link > span {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  transition: color 600ms;
+}
+.container-animate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 30vh;
+}
+
+.text {
+  font-size: 3vw;
+  letter-spacing: -.01em;
+  line-height: 100%;
+  margin-top: 0.5vw;
+  font-family: Century gothic,sans-serif;
+  width: 100%;
+  color: rgb(182, 182, 182, 0.2);
+  background: linear-gradient(to right, #ffffff, #ffffff) no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 0%;
+  transition: background-size cubic-bezier(.1,.5,.5,1) 0.5s;
+  padding-bottom: 1vw;  
+
+  border-bottom: 1px solid #2F2B28;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  .text{
+    font-size: 10vw;
+  }
+}
+
+.container-animate span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #4246ce;
+  color: #0D0D0D;
+  
+  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  transform-origin: center;
+  transition: all cubic-bezier(.1,.5,.5,1) 0.4s;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text:hover > span {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.container-animate a {
+  text-decoration: none;
+  color: inherit;
 }
